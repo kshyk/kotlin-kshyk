@@ -1,4 +1,12 @@
-sudo: false
 language: java
+install: true
+os: linux
+dist: bionic
 jdk:
   - openjdk14
+addons:
+  apt:
+    update: true
+  chrome: stable
+script:
+  - ./gradlew build --scan -s
