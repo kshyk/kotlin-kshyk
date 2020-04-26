@@ -15,8 +15,7 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-stages:
-  - compile
-  - test
-  - name: deploy
-    if: branch = master
+jobs:
+  include:
+    - script: ./gradlew check --no-daemon --console=plain
+      name: "Check"
